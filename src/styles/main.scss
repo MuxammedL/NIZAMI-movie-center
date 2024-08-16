@@ -1,0 +1,430 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700;800&display=swap");
+@import "./partials/variables.scss";
+@import "./partials/mixin.scss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body,
+div,
+span,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+img,
+i,
+ol,
+ul,
+li,
+footer,
+header,
+nav,
+section,
+video {
+    // Typography
+    text-decoration: none;
+
+    // Box model
+    margin: 0;
+    padding: 0;
+
+    // Visual
+    border: 0;
+
+    // Mics
+    box-sizing: border-box;
+}
+
+button,
+input {
+    // Visual
+    appearance: none;
+    border: none;
+    background-color: transparent;
+}
+
+header,
+nav,
+section {
+    // Box model
+    display: block;
+}
+
+ol,
+ul {
+    // Visual
+    list-style: none;
+}
+
+.container {
+    // Box model
+    margin: 0 auto;
+    max-width: 1352px;
+    padding: 0 16px;
+}
+
+.sub-container {
+    // Box model
+    margin: 0 auto;
+    max-width: 1140px;
+}
+
+body,
+button {
+    // Typography
+    font-family: "Roboto", sans-serif;
+}
+
+.carousel-image {
+    &::after {
+        // Positioning
+        @include Position($pos: absolute, $z-index: 1, $inset: 0);
+
+        // Box model
+        width: 100%;
+        height: 100%;
+
+        // Visual
+        content: "";
+        background-color: hsla(0, 0%, 11%, 0.5);
+    }
+}
+
+.carousel-poster-image,
+.carousel-card-image {
+    // Positioning
+    @include Position($pos: absolute, $top: 0, $left: 0);
+
+    // Box model
+    height: 100%;
+    width: 100%;
+}
+
+.carousel-poster-image img {
+    // Box model
+    height: 100vh;
+    width: 100vw;
+
+    // Visual
+    object-fit: cover;
+}
+
+.carousel-card-image img {
+    // Positioning
+    z-index: -1;
+
+    // Box model
+    height: 100%;
+    width: 100%;
+
+    // Visual
+    border-radius: 5px;
+    object-fit: cover;
+}
+
+.carousel-text,
+.active-carousel-text {
+    // Positioning
+    @include Position($pos: absolute, $z-index: 10);
+
+    // Box model
+    @include Flexible($a-items: center, $j-cont: center);
+
+    // Typography
+    font-style: italic;
+    line-height: 24px;
+    color: white;
+
+    // Mics
+    cursor: pointer;
+    transition: all 0.3s;
+
+    &:last-child {
+        div {
+            // Box model
+            margin-top: 3px;
+        }
+    }
+}
+
+.carousel-text {
+    // Typography
+    font-size: 13px;
+
+    // Box model
+    height: 24px;
+    width: 135px;
+}
+
+.active-carousel-text {
+    // Typography
+    font-size: 20px;
+
+    // Box model
+    height: 24px;
+    width: 185px;
+}
+
+.react-datepicker-wrapper {
+    // Box model
+    width: 100%;
+    .react-datepicker__input-container {
+        // Box model
+        @include Flexible($a-items: center);
+        input {
+            // Box model
+            padding-right: 0.75rem;
+            padding-left: 0.75rem;
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+        }
+        .react-datepicker__calendar-icon {
+            // Positioning
+            right: 0;
+            left: auto;
+
+            // Mics
+            cursor: pointer;
+        }
+    }
+}
+
+.arrowIcons {
+    // Box model
+    width: 24px;
+    height: 24px;
+
+    // Visual
+    fill: $primary;
+    border-radius: 50%;
+
+    // Mics
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:hover {
+        // Visual
+        background-color: $primary;
+        fill: #fff;
+    }
+}
+
+.dataPicker-select {
+    // Typography
+    color: #000000;
+    font-weight: 600;
+
+    // Box model
+    padding: 2px 24px 2px 8px;
+
+    // Visual
+    border-radius: 4px;
+    appearance: none;
+    background-size: 16px;
+    border: 1px solid $primary;
+    background-repeat: no-repeat;
+    background-position: 100% 50%;
+    &:focus {
+        outline: none;
+    }
+}
+
+.react-datepicker-wrapper,
+.react-datepicker__input-container,
+.react-datepicker__input-container input {
+    display: block;
+    width: 100%;
+}
+
+.react-datepicker-popper {
+    z-index: 5;
+
+    .react-datepicker__triangle {
+        stroke: #fafafa;
+    }
+
+    &[data-placement^="bottom"] {
+        .react-datepicker__triangle {
+            fill: #1b2034;
+            color: #1b2034;
+        }
+    }
+
+    &[data-placement^="top"] {
+        .react-datepicker__triangle {
+            fill: #1b2034;
+            color: #1b2034;
+        }
+    }
+}
+
+.react-datepicker__month-container {
+    .react-datepicker__header {
+        background-color: #ffffff;
+    }
+}
+
+.react-datepicker {
+    // Typography
+    font-size: 0.8rem;
+
+    // Visual
+    background-color: #1b2034;
+    border: 1px solid #fafafa;
+    border-radius: 0.3rem;
+    .react-datepicker__header {
+        // Typography
+        text-align: center;
+
+        // Box model
+        padding: 8px 0;
+
+        // Visual
+        background-color: #fff;
+        border: none;
+    }
+    .react-datepicker__day--keyboard-selected,
+    .react-datepicker__day--selected,
+    .react-datepicker__day--keyboard-selected,
+    .react-datepicker__month-text--keyboard-selected,
+    .react-datepicker__quarter-text--keyboard-selected,
+    .react-datepicker__year-text--keyboard-selected,
+    .react-datepicker__day:hover,
+    .react-datepicker__month-text:hover,
+    .react-datepicker__quarter-text:hover,
+    .react-datepicker__year-text:hover {
+        // Typography
+        color: #fff;
+
+        // Visual
+        background-color: $primary;
+    }
+}
+
+.spinner-container {
+    // Positioning
+    @include Position($pos: absolute, $top: 50%, $left: 50%);
+    transform: translate(-50%, -50%);
+
+    // Box model
+    height: 40px;
+    width: 40px;
+}
+
+.dot-spinner {
+    // Positioning
+    position: relative;
+
+    // Box model
+    @include Flexible($a-items: center, $j-cont: flex-start);
+    height: 30px;
+    width: 30px;
+
+    // Mics
+    --uib-size: 2.8rem;
+    --uib-speed: 0.9s;
+    --uib-color: #183153;
+}
+
+.dot-spinner__dot {
+    // Positioning
+    @include Position($pos: absolute, $top: 0, $left: 0);
+
+    // Box model
+    @include Flexible($a-items: center, $j-cont: flex-start);
+    height: 100%;
+    width: 100%;
+
+    &::before {
+        // Positioning
+        transform: scale(0);
+
+        // Box model
+        height: 20%;
+        width: 20%;
+
+        // Visual
+        border-radius: 50%;
+        content: "";
+        background-color: $primary;
+        box-shadow: 0 0 20px rgba(18, 31, 53, 0.3);
+
+        // Mics
+        opacity: 0.5;
+        animation: pulse0112 calc(var(--uib-speed) * 1.111) ease-in-out infinite;
+    }
+
+    &:nth-child(2) {
+        transform: rotate(45deg);
+    }
+
+    &:nth-child(2)::before {
+        animation-delay: calc(var(--uib-speed) * -0.875);
+    }
+
+    &:nth-child(3) {
+        transform: rotate(90deg);
+    }
+
+    &:nth-child(3)::before {
+        animation-delay: calc(var(--uib-speed) * -0.75);
+    }
+
+    &:nth-child(4) {
+        transform: rotate(135deg);
+    }
+
+    &:nth-child(4)::before {
+        animation-delay: calc(var(--uib-speed) * -0.625);
+    }
+
+    &:nth-child(5) {
+        transform: rotate(180deg);
+    }
+
+    &:nth-child(5)::before {
+        animation-delay: calc(var(--uib-speed) * -0.5);
+    }
+
+    &:nth-child(6) {
+        transform: rotate(225deg);
+    }
+
+    &:nth-child(6)::before {
+        animation-delay: calc(var(--uib-speed) * -0.375);
+    }
+
+    &:nth-child(7) {
+        transform: rotate(270deg);
+    }
+
+    &:nth-child(7)::before {
+        animation-delay: calc(var(--uib-speed) * -0.25);
+    }
+
+    &:nth-child(8) {
+        transform: rotate(315deg);
+    }
+
+    &:nth-child(8)::before {
+        animation-delay: calc(var(--uib-speed) * -0.125);
+    }
+}
+
+@keyframes pulse0112 {
+    0%,
+    100% {
+        transform: scale(0);
+        opacity: 0.5;
+    }
+
+    50% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}

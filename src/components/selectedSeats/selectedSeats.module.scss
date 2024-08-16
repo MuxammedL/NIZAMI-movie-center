@@ -1,0 +1,76 @@
+@import "../../styles/partials/variables.scss";
+
+.selected-seats-container {
+    // Positioning
+    position: relative;
+
+    // Box model
+    display: grid;
+    min-height: 100vh;
+    width: 100%;
+    place-items: center;
+
+    // Visual
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    @media (min-width: 1024px) {
+        width: 47%;
+    }
+
+    .selected-seats {
+        // Positioning
+        position: relative;
+
+        // Box model
+        height: 524px;
+        width: 90%;
+
+        // Typography
+        font-size: 1.25rem;
+        color: white;
+
+        // Visual
+        background-color: $black-alt;
+
+        // Misc
+        margin-top: 100px;
+
+        @media (min-width: 640px) {
+            width: 409px;
+        }
+
+        @media (min-width: 1536px) {
+            margin-top: 150px;
+        }
+    }
+
+    .button {
+        // Box model
+        height: 50px;
+        width: 250px;
+
+        // Typography
+        font-size: 20px;
+        font-weight: 500;
+        color: white;
+
+        // Visual
+        border-radius: 10px;
+        background-color: $red;
+    }
+    .scroller {
+        &::-webkit-scrollbar {
+            //Box model
+            width: 8px;
+            // Visual
+            background-color: black;
+            border-radius: 4px;
+        }
+        &::-webkit-scrollbar-thumb {
+            background-color: $red;
+            border-radius: 4px;
+        }
+    }
+}
